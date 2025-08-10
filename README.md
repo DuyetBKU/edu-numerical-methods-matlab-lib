@@ -53,7 +53,7 @@ This library aims to make that bridge clear, visual, and interactive.
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/DuyetBKU/numerical-methods-matlab-lib.git
+   git clone https://github.com/DuyetBKU/edu-numerical-methods-matlab-lib.git
    ```
 2. Open any `.m` file in MATLAB.
 3. Run the script, follow the comments, and tweak the inputs to explore.
