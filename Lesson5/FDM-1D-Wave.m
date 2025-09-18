@@ -1,44 +1,47 @@
-% Khởi tạo các thông số
-L = 1;
-T = 1;
-c = 1;
-N = 10;
-M = 100;
-dx = L / N;
-dt = T / M;
+% Initialize parameters
+L = 1;        % Length of the spatial domain (x ∈ [0, L])
+T = 1;        % Total simulation time
+c = 1;        % Wave propagation speed
+N = 10;       % Number of spatial steps (subdivisions in space)
+M = 100;      % Number of time steps (subdivisions in time)
+dx = L / N;   % Spatial step size (distance between grid points)
+dt = T / M;   % Time step size (time increment)
 
-% Tạo vector x và t
-x = 0:dx:L;
-t = 0:dt:T;
+% Create spatial and temporal vectors
+x = 0:dx:L;   % Spatial grid points from 0 to L
+t = 0:dt:T;   % Time grid points from 0 to T
 
-% Khởi tạo ma trận u
-u = zeros(N+1, M+1);
+% Initialize solution matrix u
+u = zeros(N+1, M+1);  % u(i, n) stores displacement at position i and time n
 
-% Điều kiện ban đầu
-u(:, 1) = sin(pi * x);
-u(:, 2) = u(:, 1);
+% Initial conditions
+u(:, 1) = sin(pi * x);   % Initial displacement: sine wave at t = 0
+u(:, 2) = u(:, 1);       % Initial velocity = 0 → same displacement for t = dt
 
-% Hệ số tính toán
-alpha = (c * dt / dx)^2;
+% Coefficient for numerical scheme
+alpha = (c * dt / dx)^2;   % Courant number squared, determines stability
 
-% Lặp qua các bước thời gian
+% Time-stepping loop
 for n = 2:M
    for i = 2:N
-       u(i, n+1) = 2 * u(i, n) - u(i, n-1) + alpha * (u(i+1, n) - 2 * u(i, n) + u(i-1, n));
+       % Finite difference scheme for the wave equation
+       u(i, n+1) = 2 * u(i, n) - u(i, n-1) + ...
+                   alpha * (u(i+1, n) - 2 * u(i, n) + u(i-1, n));
    end
-   % Điều kiện biên
-   u(1, n+1) = 0;
-   u(N+1, n+1) = 0;
+   % Boundary conditions (fixed ends)
+   u(1, n+1) = 0;          % Left boundary (x=0) fixed
+   u(N+1, n+1) = 0;        % Right boundary (x=L) fixed
 end
 
-% Vẽ đồ thị 2D của u(x, t) tại các thời điểm khác nhau
+% Plot the wave profile over time
 figure;
 for n = 1:M+1
-    plot(x, u(:, n));
-    hold on;
-    xlabel('Không gian (x)');
-    ylabel('u(x,t)');
-    title(['Giải phương trình sóng một chiều tại thời điểm t = ', num2str((n-1)*dt)]);
-    pause(0.1); % Tạo độ trễ để xem rõ hơn các bước
+    plot(x, u(:, n));                          % Plot wave displacement at time step n
+    hold on;                                   % Keep previous plots for comparison
+    xlabel('Space (x)');                       % x-axis label
+    ylabel('u(x,t)');                          % y-axis label
+    title(['1D Wave Equation at t = ', ...
+          num2str((n-1)*dt)]);                 % Title showing current time
+    pause(0.1);                                % Small pause for animation effect
 end
 hold off;
