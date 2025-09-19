@@ -37,11 +37,11 @@ end
 figure;
 for n = 1:M+1
     plot(x, u(:, n));                         
-    hold on;                                   % Keep previous plots for comparison
-    xlabel('Space (x)');                       % x-axis label
-    ylabel('u(x,t)');                          % y-axis label
+    hold on;                                  
+    xlabel('Space (x)');                      
+    ylabel('u(x,t)');                         
     title(['1D Wave Equation at t = ', ...
-          num2str((n-1)*dt)]);                 % Title showing current time
-    pause(0.1);                                % Small pause for animation effect
+          num2str((n-1)*dt)]);                
+    pause(0.1);                                
 end
 hold off;
