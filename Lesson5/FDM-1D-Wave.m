@@ -29,7 +29,7 @@ for n = 2:M
                    alpha * (u(i+1, n) - 2 * u(i, n) + u(i-1, n));
    end
    % Boundary conditions (fixed ends)
-   u(1, n+1) = 0;          % Left boundary (x=0) fixed
+   u(1, n+1) = 0;         
    u(N+1, n+1) = 0;        % Right boundary (x=L) fixed
 end
 
