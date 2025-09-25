@@ -30,7 +30,7 @@ for n = 2:M
    end
    % Boundary conditions (fixed ends)
    u(1, n+1) = 0;         
-   u(N+1, n+1) = 0;        %
+   u(N+1, n+1) = 0;       
 end
 
 % Plot the wave profile over time
