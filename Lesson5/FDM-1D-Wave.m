@@ -20,8 +20,6 @@ u(:, 2) = u(:, 1);
 
 % Coefficient for numerical scheme
 alpha = (c * dt / dx)^2;   
-
-% Time-stepping loop
 for n = 2:M
    for i = 2:N
        % Finite difference scheme for the wave equation
