@@ -5,8 +5,6 @@ N = 10;
 M = 100;     
 dx = L / N;   
 dt = T / M;   
-
-% Create spatial and temporal vectors
 x = 0:dx:L;  
 t = 0:dt:T;   
 
