@@ -7,8 +7,6 @@ dx = L / N;
 dt = T / M;   
 x = 0:dx:L;  
 t = 0:dt:T;   
-
-% Initialize solution matrix u
 u = zeros(N+1, M+1);  
 
 % Initial conditions
