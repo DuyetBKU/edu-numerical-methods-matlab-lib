@@ -12,8 +12,6 @@ u = zeros(N+1, M+1);
 % Initial conditions
 u(:, 1) = sin(pi * x);   
 u(:, 2) = u(:, 1);       
-
-% Coefficient for numerical scheme
 alpha = (c * dt / dx)^2;   
 for n = 2:M
    for i = 2:N
