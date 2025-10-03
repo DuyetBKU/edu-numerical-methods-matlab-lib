@@ -8,8 +8,6 @@ dt = T / M;
 x = 0:dx:L;  
 t = 0:dt:T;   
 u = zeros(N+1, M+1);  
-
-% Initial conditions
 u(:, 1) = sin(pi * x);   
 u(:, 2) = u(:, 1);       
 alpha = (c * dt / dx)^2;   
