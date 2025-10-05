@@ -22,7 +22,7 @@ for n = 2:M
    u(N+1, n+1) = 0;       
 end
 
-% Plot the wave profile over time
+% Plot the wave
 figure;
 for n = 1:M+1
     plot(x, u(:, n));                         
