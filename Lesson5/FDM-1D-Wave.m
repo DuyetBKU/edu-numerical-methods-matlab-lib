@@ -13,7 +13,6 @@ u(:, 2) = u(:, 1);
 alpha = (c * dt / dx)^2;   
 for n = 2:M
    for i = 2:N
-       % Finite difference
        u(i, n+1) = 2 * u(i, n) - u(i, n-1) + ...
                    alpha * (u(i+1, n) - 2 * u(i, n) + u(i-1, n));
    end
