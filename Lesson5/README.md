@@ -1,6 +1,5 @@
 ### 💻 Explanation of each command line:
 ```matlab
-% Initialize parameters
 L = 1;        % Length of the spatial domain (x ∈ [0, L])
 T = 1;        % Total simulation time
 c = 1;        % Wave propagation speed
