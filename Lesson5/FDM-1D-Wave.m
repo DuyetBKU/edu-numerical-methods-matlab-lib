@@ -16,7 +16,7 @@ for n = 2:M
        u(i, n+1) = 2 * u(i, n) - u(i, n-1) + ...
                    alpha * (u(i+1, n) - 2 * u(i, n) + u(i-1, n));
    end
-   % Boundary conditions
+   % Boundary
    u(1, n+1) = 0;         
    u(N+1, n+1) = 0;       
 end
