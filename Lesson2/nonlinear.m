@@ -1,4 +1,4 @@
-% Initialize data
+% Initialize
 x = 1:1000;
 q = 1;
 
